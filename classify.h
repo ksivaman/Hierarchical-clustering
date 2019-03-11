@@ -1,4 +1,3 @@
-//DO NOT MODIFY THIS FILE
 typedef struct TNode
 {
 	struct TNode* left;
@@ -6,7 +5,6 @@ typedef struct TNode
 	int* data;
 	int dimension;
 }TreeNode;
-
 
 typedef struct LNode
 {
