@@ -1,11 +1,9 @@
-//edit this file as required
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
-#include "hw18.h"
+#include "classify.h"
 
-//Do Not Change this function
 void PrintAnswer(ListNode* head, ListNode* min1, ListNode* min2)
 {
 	ListNode* temp = head;
@@ -53,15 +51,8 @@ void PrintAnswer(ListNode* head, ListNode* min1, ListNode* min2)
 	}
 }
 
-/*
-YOU CAN EDIT BELOW THIS COMMENT
-*/
-
-#ifdef TEST_MIN
 void FindMin(ListNode* head)
 {
-	// find pair of ListNodes with least distance between them.
-	// call print Function
         ListNode * l1 = head;
         ListNode * l2 = head->next;
         ListNode * min1 = head;
@@ -105,23 +96,10 @@ void FindMin(ListNode* head)
         }
 
         PrintAnswer(head, min1, min2);
-	/*
-	ENSURE the 2nd parameter of the print function (min1) is smaller than
-	the 3rd parameter (min2). 
-	Look at README, and expected output for more details.
-	*/
-
 }
-#endif
 
-
-#ifdef TEST_DIST
 int FindDist(TreeNode* x, TreeNode* y)
 {
-	//find the eucledian distance between
-	// x->data and y->data
-	// DO NOT FIND SQUARE ROOT (we are working with int)
-	// return the distance
 	int sum = 0;
         int temp;
   	int lcv;
@@ -132,13 +110,9 @@ int FindDist(TreeNode* x, TreeNode* y)
   	}
   	return sum;
 }
-#endif
 
-
-#ifdef TEST_CREATENODE
 ListNode* CreateNode(int n, int dim, int* arr)
 {
-	// check for malloc error
         ListNode* list = malloc(sizeof(ListNode));
         TreeNode* tree = malloc(sizeof(TreeNode));
         tree->left=NULL;
@@ -153,21 +127,10 @@ ListNode* CreateNode(int n, int dim, int* arr)
         list->treenode = tree;
         list->next = NULL;
         return list;       
-	// initialize dim
-	// both left and right childern will be NULL
-	// allocate memory for data
-	// return a ListNode
 }
-#endif
 
-
-#ifdef TEST_LINKEDLISTCREATE
 void LinkedListCreate(ListNode ** head, int n, int dim, FILE* fptr)
 {
-	// create temp node using CreateNode
-	// read from file into an array, pass array to CreateNode
-	// assign temp to that node
-
         int *arr = malloc(sizeof(int)*dim);
 
         if (arr==NULL)
@@ -194,7 +157,5 @@ void LinkedListCreate(ListNode ** head, int n, int dim, FILE* fptr)
           temp->next = CreateNode(n,dim,arr);
           temp = temp->next; 
         }
-        free(arr);               
-	// use a loop to create nodes for the remaining elements of the list.
+        free(arr);
 }
-#endif
