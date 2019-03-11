@@ -25,6 +25,7 @@ void PrintAnswer(ListNode* head, ListNode* min1, ListNode* min2)
 
 		}
 		temp = temp->next;
+    return;
 	}
 
 	i = 0;
